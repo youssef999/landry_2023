@@ -12,12 +12,13 @@ import 'package:get_storage/get_storage.dart';
 class TrackOrders extends GetWidget<MaterialViewModel> {
   String  cat,date1,date2,time1,time2,address,address2,city,country,price;
     List items;
+    String progress;
     String services;
 
 
   TrackOrders({
       required this.cat,required this.services,required this.city,required this.country,
-    required this.address,required this.price,required this.address2
+    required this.address,required this.price,required this.address2,required this.progress
     ,required this.items,required this.date1,required this.date2,required this.time2,required this.time1
   }); // MaterialScreen({required this.doctor, required this.cat});
 
@@ -87,18 +88,29 @@ class TrackOrders extends GetWidget<MaterialViewModel> {
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  Stack(
                     children: [
-                      Container(
-                        height:120,
-                        child:Image.asset('assets/images/progress.png')
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                              height:120,
+                              child:Image.asset('assets/images/progress.png')
+                          ),
+                        ],
+                      ),
+
+
+                      Padding(
+                        padding: const EdgeInsets.only(top:40,left:8.0,right:8.0),
+                        child: Custom_Text(text: progress +"%",fontSize:20,color:Colors.blueAccent,alignment:Alignment.center),
                       ),
                     ],
                   ),
                   SizedBox(
                     height: 10,
                   ),
+
                   Container(
                     width: 150,
                     decoration:BoxDecoration(

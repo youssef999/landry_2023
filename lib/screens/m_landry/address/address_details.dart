@@ -433,6 +433,20 @@ class AddressDetailsScreen extends StatelessWidget {
 
                             final box=GetStorage();
                             String email=box.read('email')??"";
+
+                            await FirebaseFirestore.instance
+                                .collection('address')
+                                .add({
+                              "name": controller.address.text,
+                              "email":email,
+                              "status": controller.status.text,
+                              "city": controller.city.text,
+                              "country": controller.country.text,
+                              "code": controller.code.text,
+                              "check":check,
+                            }).then((value) {
+                            });
+
                             Get.to(Maps2Screen(
                               cat: cat,
                               price:price.toString(),
@@ -447,18 +461,9 @@ class AddressDetailsScreen extends StatelessWidget {
                             )
 
                 );
-                await FirebaseFirestore.instance
-                    .collection('address')
-                    .add({
-                "name": controller.address,
-                "email":email,
-                "status": controller.status,
-                "city": controller.city,
-                "country": controller.country,
-                "code": controller.code,
-                "check":check,
-                }).then((value) {
-                });
+
+
+
                             },
                           child: AnimatedContainer(
                             width: 330,

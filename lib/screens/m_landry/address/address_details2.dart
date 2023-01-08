@@ -429,8 +429,20 @@ class AddressDetailsScreen2 extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () async {
-
-
+                            final box=GetStorage();
+                            String email=box.read('email')??"";
+                            await FirebaseFirestore.instance
+                                .collection('address')
+                                .add({
+                              "name": controller.address.text,
+                              "email":email,
+                              "status": controller.status.text,
+                              "city": controller.city.text,
+                              "country": controller.country.text,
+                              "code": controller.code.text,
+                              "check":check,
+                            }).then((value) {
+                            });
                             Get.to  (DateTimeScreen(
                               items: items,
                               order: order,
@@ -445,7 +457,6 @@ class AddressDetailsScreen2 extends StatelessWidget {
                               //     code: controller.code.text,
                               latlong: '',
                               placemark: '',
-
                             ));
                             // Get.to(OrderScreen(
                             //     pricing: pricing,
@@ -468,23 +479,11 @@ class AddressDetailsScreen2 extends StatelessWidget {
                             //     services: 0.0,
                             //     items: items));
 
-                            final box=GetStorage();
-                            String email=box.read('email')??"";
 
 
 
-                            await FirebaseFirestore.instance
-                                .collection('address')
-                                .add({
-                              "name": controller.address,
-                              "email":email,
-                              "status": controller.status,
-                              "city": controller.city,
-                              "country": controller.country,
-                              "code": controller.code,
-                              "check":check,
-                            }).then((value) {
-                            });
+
+
 
                           },
                           child: AnimatedContainer(

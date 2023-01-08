@@ -58,6 +58,7 @@ TextEditingController date2=TextEditingController();
         .add({
       "user_name": name,
       "email":email,
+      "progress":10,
       "order": order,
       "address1": address,
       "address2":address2,

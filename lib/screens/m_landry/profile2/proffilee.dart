@@ -56,8 +56,10 @@ class Prooffilee2 extends GetWidget<MaterialViewModel> {
                     ),
                     InkWell(
                       onTap: () {
+
                         Get.to(ProfileScreen2());
-                      },
+
+                        },
                       child: Padding(
                         padding: EdgeInsets.only(left: 240),
                         child: Container(
@@ -220,7 +222,6 @@ class Prooffilee2 extends GetWidget<MaterialViewModel> {
 
                                                                 }, icon:Icon(Icons.navigate_next_sharp,
                                                                   color:Colors.grey,))
-
                                                               ],
                                                             ),
                                                             Divider(
@@ -297,13 +298,25 @@ class Prooffilee2 extends GetWidget<MaterialViewModel> {
                                               );
                                             });
                                       } else {
-                                        return Center(
-                                          child: Custom_Text(
-                                            text: "",
-                                            alignment: Alignment.center,
-                                            fontSize: 22,
-                                          ),
-                                        );
+                                        return
+
+                                          Column(
+                                            children: [
+                                              Row(
+                                              children: [
+                                                Custom_Text(text: "اضف عنوان جديد",
+                                                  fontSize:19,color:Colors.blue,),
+                                                SizedBox(width: 40,),
+                                                IconButton(onPressed: (){
+                                                  Get.to(NewAddressScreen());
+                                                },
+                                                    icon: Icon(Icons.add_circle,
+                                                      color:Colors.blueAccent,)),
+                                              ],
+                                        ),
+                                              SizedBox(height: 500,)
+                                            ],
+                                          );
                                       }
                                   }
                                 })),

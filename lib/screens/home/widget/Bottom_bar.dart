@@ -10,6 +10,7 @@ class BottomBar extends StatefulWidget {
   const BottomBar({Key? key}) : super(key: key);
   @override
   State<BottomBar> createState() => _BottomBarState();
+
 }
 
 
@@ -41,6 +42,7 @@ class BottomBar extends StatefulWidget {
           unselectedItemColor: Colors.grey,
           backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
+
           onTap: (index) {
             setState(() {
               myIndex = index;

@@ -216,6 +216,7 @@ class HistoryScreen extends StatelessWidget {
                                             Get.to(TrackOrders(
                                                 services: posts['services'].toString(),
                                                 city: posts['city'],
+                                                progress: posts['progress'].toString(),
                                                 country: posts['country'],
                                                 cat: posts['cat'],
                                                 price: posts['total'],
@@ -439,6 +440,7 @@ class HistoryScreen extends StatelessWidget {
                                           Get.to(TrackOrders(
                                               services: posts['services'].toString(),
                                               city: posts['city'],
+                                              progress: posts['progress'].toString(),
                                               country: posts['country'],
                                               cat: posts['cat'],
                                               price: posts['total'],
